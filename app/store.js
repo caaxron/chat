@@ -28,7 +28,7 @@ const useStore = create((set) => ({
       .sort((a, b) => b[1] - a[1])
       .map(([user, count]) => `${user}: ${count + " words"}`);
 
-    uploadFile(fileName, sortedData);
+    uploadFile(fileName, sortedData, lines);
     set({ wordCounts: sortedData });
   },
 }));

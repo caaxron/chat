@@ -93,7 +93,7 @@ export default function Home() {
         <h1 className="text-xl text-blue-400 font-bold">
           {data ? "History List" : "Empty"}
         </h1>
-        <div className="p-10 grid grid-cols-5 gap-6 bg-slate-200 rounded-2xl">
+        <div className="p-10 grid grid-cols-4 gap-6 bg-slate-200 rounded-2xl">
           <HistoryList
             isLoading={isLoading}
             data={data}
@@ -101,7 +101,19 @@ export default function Home() {
             buttonHandler={buttonHandler}
           />
         </div>
-        <div className="p-10">
+        <div className="p-10 grid grid-cols-2 gap-6">
+          <div>
+            <h1 className="text-xl text-slate-700 font-bold">Input: </h1>
+            {data &&
+              data.map(
+                (item, index) =>
+                  item.id === selectedButton &&
+                  item.fileContent &&
+                  item.fileContent.map((line, lineIndex) => (
+                    <h1 key={lineIndex}>{line}</h1>
+                  ))
+              )}
+          </div>
           <HistoryOutput data={data} selectedButton={selectedButton} />
         </div>
       </div>
