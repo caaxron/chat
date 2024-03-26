@@ -84,9 +84,15 @@ export default function Home() {
           fileName={fileName}
           setFileName={setFileName}
         />
-        <FileOuput wordCounts={wordCounts} />
+        <div className="pt-8 text-xl text-blue-400 font-bold">
+          <h1>Output:</h1>
+          <FileOuput wordCounts={wordCounts} />
+        </div>
       </div>
       <div>
+        <h1 className="text-xl text-blue-400 font-bold">
+          {data ? "History List" : "Empty"}
+        </h1>
         <div className="p-10 grid grid-cols-5 gap-6 bg-slate-200 rounded-2xl">
           <HistoryList
             isLoading={isLoading}
